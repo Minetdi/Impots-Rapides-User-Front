@@ -1,0 +1,27 @@
+<div class="nav-items">
+    <a [routerLink]="['/taxfile', selectedYear, 'accueil']">
+    <div class="nav-item">
+        <fa-icon [icon]="faHouse"></fa-icon>
+        <span>Accueil</span>
+    </div>
+    </a>
+    <div class="nav-item">
+        <a [routerLink]="['/taxfile', selectedYear, 'questionnaire']">
+        <!-- <a [routerLink]="['/taxfile', selectedYear, 'accueil']" class="nav-item"> -->
+            <fa-icon [icon]="faFolderMinus"></fa-icon>
+            <span>Questionnaire</span>
+        </a>
+    </div>
+    <div class="nav-item">
+        <a [routerLink]="['/taxfile', selectedYear, 'documents']">
+            <fa-icon [icon]="faFolderMinus"></fa-icon>
+            <span>Documents</span>
+        </a>
+    </div>
+    <div class="nav-item">
+        <a [routerLink]="['/taxfile', selectedYear, 'famille']">
+            <fa-icon [icon]="faPersonShelter"></fa-icon>
+            <span>Famille</span>
+        </a>
+    </div>
+</div>

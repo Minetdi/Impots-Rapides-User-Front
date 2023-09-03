@@ -1,0 +1,81 @@
+<!-- <div class="select-person">
+  <label for="person">Sélectionnez une personne:</label>
+  <select id="person" [(ngModel)]="selectedPerson">
+      <option *ngFor="let person of persons" [value]="person">{{ person }}</option>
+  </select>
+</div>
+
+<div class="person-form">
+  <div *ngIf="selectedPerson">
+      <h2>Formulaire pour {{ selectedPerson }}</h2>
+      <label for="name">Prénom:</label>
+      <input type="text" id="name" [(ngModel)]="personForm.personalInfo.lastName">
+      <button (click)="onSubmit()">Soumettre</button>
+  </div>
+</div> -->
+
+
+
+
+
+
+<!-- <div class="person-form">
+  <div *ngIf="selectedPerson">
+    <h2>Formulaire pour {{ selectedPerson }}</h2>
+    <div *ngFor="let field of personFormFields">
+      <label for="{{field.id}}">{{field.label}}:</label>
+      <input [type]="field.type" [id]="field.id" [(ngModel)]="personForm.personalInfo[field.id]" *ngIf="personForm.personalInfo.hasOwnProperty(field.id)">
+      <input [type]="field.type" [id]="field.id" [(ngModel)]="personForm.questions[field.id]" *ngIf="personForm.questions.hasOwnProperty(field.id)">
+    </div>
+    <button (click)="onSubmit()">Soumettre</button>
+  </div>
+</div> -->
+
+
+<div *ngIf="entries && entries.length && labels">
+  <h3>Selected Client</h3>
+  <div class="person-form">
+    <form (ngSubmit)="onSubmit()">
+      <div class="card-row" *ngFor="let label of getKeys(labels)">
+        <div class="form-group">
+          <label class="card-label">{{label}}</label>
+          <input class="card-value" [value]="filterData(labels[label])">
+        </div>
+      </div>
+      <button (click)="onSubmit()">Soumettre</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="person-form">
+    <form (ngSubmit)="onSubmit()">
+      <div *ngFor="let field of newFormFields">
+        <div class="form-group">
+          <h1>Allo</h1>
+          <label for="{{field.id}}">{{field[0]['label']}}:</label>
+          <input *ngIf="field.type !== 'text'" 
+                 [type]="field.type" 
+                 [id]="field.id" 
+                 [placeholder]="field.placeholder" 
+                 [(ngModel)]="personForm.personalInfo[field.id]"
+                 name="{{field.id}}" 
+                 class="form-control"
+          >
+          <select *ngIf="field.type === 'select'"
+                  [id]="field.id"
+                  [(ngModel)]="personForm.personalInfo[field.id]"
+                  name="{{field.id}}" 
+                  class="form-control"
+          >
+            <option *ngFor="let option of field.options" [value]="option">{{option}}</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Soumettre</button>
+    </form>
+</div> -->

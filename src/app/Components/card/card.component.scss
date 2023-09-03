@@ -1,0 +1,120 @@
+$card-border-color: #ddd;
+$card-shadow-color: rgba(0, 0, 0, 0.1);
+$card-shadow-color-hover: rgba(0, 0, 0, 0.2);
+$card-title-font-family: 'gtwalsheim-boldregular';
+$card-title-font-size: 16px;
+$user-name-font-weight: bold;
+$user-name-font-size: 25px;
+$user-name-margin-bottom: 60px;
+$process-items-gap: 5px;
+$item-margin: 10px 0;
+$checkbox-circle-size: 30px;
+$checkbox-circle-border-width: 2px;
+$checkbox-circle-border-color: #ddd;
+$checkbox-circle-bg-color: #eee;
+$checkbox-circle-border-color-disabled: #ccc;
+$checkbox-circle-bg-color-disabled: #ddd;
+$checkbox-circle-border-color-active: #388E3C;
+$checkbox-circle-bg-color-active: #4CAF50;
+$checkmark-width: 10px;
+$checkmark-height: 5px;
+$checkmark-border-width: 2px;
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 70px 50px;
+}
+
+.card {
+  border: 1px solid $card-border-color;
+  padding: 100px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px $card-shadow-color;
+  
+  &:hover {
+      box-shadow: 0 4px 10px $card-shadow-color-hover;
+  }
+
+  &-content {
+    .card_title {
+      text-align: center;
+      font-family: $card-title-font-family;
+      font-size: $card-title-font-size;
+    }
+
+    .process-container {
+      padding: 10px 0;
+      border-bottom: 1px solid $card-border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .user_name {
+        font-weight: $user-name-font-weight;
+        font-size: $user-name-font-size;
+        margin-bottom: $user-name-margin-bottom;
+      }
+
+      .process-items {
+        display: flex;
+        flex-direction: column;
+        gap: $process-items-gap;
+
+        .item {
+          margin: $item-margin;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .checkbox-circle {
+            position: relative;
+            border-radius: 50%;
+            width: $checkbox-circle-size;
+            height: $checkbox-circle-size;
+            border: $checkbox-circle-border-width solid $checkbox-circle-border-color;
+            background-color: $checkbox-circle-bg-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            &.disabled {
+              background-color: $checkbox-circle-bg-color-disabled;
+              border-color: $checkbox-circle-border-color-disabled;
+            }
+
+            &.active {
+              background-color: $checkbox-circle-bg-color-active;
+              border-color: $checkbox-circle-border-color-active;
+              .checkmark {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateY(180deg) rotate(-135deg);
+                width: $checkmark-width;
+                height: $checkmark-height;
+                border: $checkmark-border-width solid $checkbox-circle-border-color-active;
+                border-bottom: none;
+                border-right: none;
+              }
+            }
+
+            .checkmark {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%) rotateY(180deg) rotate(-135deg);
+              width: $checkmark-width;
+              height: $checkmark-height;
+              border: $checkmark-border-width solid $checkbox-circle-border-color-disabled;
+              border-bottom: none;
+              border-right: none;
+            }
+          } 
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.nav-items {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 150px;
+  width: 250px;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background-color: #113c60;
+  color: #fff;
+  box-shadow: 5px 5px 5px #939393;
+  z-index: 999;
+  overflow-y: auto;
+  will-change: transform;
+  backface-visibility: hidden;
+  box-sizing: inherit;
+  a {
+    color: #fff;
+  }
+
+  @media only screen and (max-width: 1300px) {
+      width: 100px;
+  }
+
+  .nav-item {
+      top : 500px;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      font-weight: bold;
+      cursor: pointer;
+
+      @media only screen and (max-width: 1300px) {
+          padding: 25px 40px;
+      }
+
+      &:hover {
+          background-color: #012645;
+      }
+
+      fa-icon {
+          margin-right: 20px;
+          font-size: 22px;
+      }
+
+      span {
+          margin-left: 10px;
+
+          @media only screen and (max-width: 1300px) {
+              display: none;
+          }
+      }
+  }
+}
+

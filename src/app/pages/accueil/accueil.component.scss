@@ -1,0 +1,122 @@
+
+::ng-deep .card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    justify-content: center;
+    margin-top: 70px;
+    margin-left: 250px;
+    margin-right: 250px;
+
+    .card-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .card-label {
+            font-weight: bold;
+        }
+
+        .card-value {
+            text-align: right;
+        }
+    }
+}
+
+body{
+    font-size:1em;
+     height: 100%;
+  }
+  
+  h3 {
+    font-family: Lato;
+    text-align: center;
+    color: #7e7c7c;
+  }
+  
+  .circles{
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s;
+    background-color: #7e7c7c;
+    vertical-align: middle; // ajouté
+}
+  
+.active{
+    background-color: rgb(19, 189, 42);
+}
+  
+.circle-desc-active{
+    font-weight: bold;
+}
+  
+.bar {
+    width: 100px;  /* ajustez cette valeur en fonction de vos besoins */
+    height: 0.2em;
+    background-color: #7e7c7c;
+    display: inline-block;
+    transition: background-color 0.5s;
+  }
+  
+  
+.container{
+    min-width:320px;
+    margin: "0px auto";
+    text-align: center;
+}
+
+.container{
+    min-width:320px;
+    margin: "0px auto";
+    text-align: center;
+}
+  
+.circle-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px;
+    justify-content: center;
+  }
+  
+//   .circle-desc {
+//     margin-top: 10px;
+//     font-size: 1.125em;
+//     text-align: center;
+//   }
+  
+  .progress-status {
+    margin: 0;
+    // display: inline-flex;
+    align-content: flex-end;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+.circle-desc{
+    // position: absolute;
+    // top: 5.000em;
+    font-size: 1.125em;
+    width: 100;
+    max-width: 9.375em;
+    margin-top: 10px;
+    text-align: center;
+    // margin-left: -0.750em;
+}
+  
+.active + .bar{
+    background-color: rgb(19, 189, 42);
+}
+

@@ -1,0 +1,50 @@
+
+<h3>{{ name }}</h3>
+
+<div class="container">
+  <span *ngFor="let item of counts; let i = index">
+    <div class="circle-container">
+      <div class="progress-status">      
+        <span class="circles" [class.active]="orderStatus == item"></span>
+        <span class="bar" *ngIf="(i != counts.length-1)"></span>
+      </div>
+      <span class="circle-desc">Votre description ici</span>
+    </div>
+  </span>
+</div>
+
+
+
+ <!-- <div class="container">
+  <span *ngFor="let item of counts; let i = index">
+    <div class="item">
+      <div class="circle-bar-container">
+        <span class="circles" [class.active]="orderStatus == item"></span>
+        
+      </div>
+      <span class="bar" *ngIf="(i != counts.length-1)"></span>
+      <div class="circle-desc" [class.circle-desc-active]="orderStatus == item">
+        {{ item }}
+      </div>
+    </div>
+  </span>
+</div> -->
+
+
+<app-card></app-card>
+
+<div class="content" role="main">
+  <h2>Dashboard</h2>
+</div>
+
+<div *ngIf="entries && entries.length && labels">
+  <h3>Selected Client</h3>
+  <div class="card">
+    <div *ngFor="let label of getKeys(labels)">
+      <div class="card-row">
+        <div class="card-label">{{label}}</div>
+        <div class="card-value">{{filterData(labels[label])}}</div>
+      </div>
+    </div>
+  </div>
+</div>
