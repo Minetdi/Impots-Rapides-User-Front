@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule } from '@angular/forms';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
 
 import { AppComponent } from './app.component';
 import { GravityFormsService } from './Services/Gravity Forms/gravity-forms.service';
@@ -63,6 +65,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatProgressBarModule,
     FormsModule,
+    NgxDropzoneModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],

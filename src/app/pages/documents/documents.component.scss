@@ -1,0 +1,78 @@
+ // Couleurs
+$primary-color: #2E3A59;
+$secondary-color: #A8B2C1;
+$background-color: #F4F5F7;
+$input-bg-color: #FFFFFF;
+$btn-hover-color: #1B2439;
+
+.dropzone-empty {
+    border: 2px dashed #aaa;
+    background-color: #f9f9f9;
+    size: 15px
+}
+
+.dropzone-filled {
+    border: 2px solid #4CAF50;
+    background-color: #e8f5e9;
+    size: 15px
+}
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+        background-color: $btn-hover-color;
+    }
+}
+
+// Animation légère
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.app-documents {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+
+form {
+  .form-group {
+    margin-bottom: 1rem;  // Ajoute un espace en bas de chaque groupe de formulaires
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input,
+    ngx-dropzone {
+      width: 100%;
+    }
+  }
+  
+  ngx-dropzone {
+    border: 2px dashed $primary-color;
+    border-radius: 4px;
+    padding: 1rem;
+    background-color: $background-color;
+    transition: border 0.3s;
+
+    &:hover {
+      border-color: darken($primary-color, 10%);
+    }
+  }
+}

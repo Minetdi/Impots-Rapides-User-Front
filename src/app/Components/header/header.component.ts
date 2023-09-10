@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit{
     this.selectedYear = year;
     this.sharedService.changeYear(year);
     this.router.navigate([`/taxfile/${this.selectedYear}/accueil`]);
-}
+  }
 
 
 }

@@ -1,1 +1,42 @@
-<p>documents works!</p>
+<!-- <div *ngIf="labels && getKeys(labels).length">
+  <h3>Upload Documents</h3>
+  <div class="documents-form">
+    <form (ngSubmit)="onSubmit()">
+      <div *ngFor="let label of getKeys(labels)">
+        <div class="form-group">
+          <label>{{label}}</label>
+          <input type="file" [attr.name]="label">
+        </div>
+      </div>
+      <button (click)="onSubmit()">Upload</button>
+    </form>
+  </div>
+</div> -->
+
+
+<div *ngFor="let label of getKeys(labels)">
+  <div class="form-group">
+      <label>{{label}}</label>
+      <div class="dropzone-container">
+          <ngx-dropzone 
+              [ngClass]="filesMap[label] && filesMap[label].length ? 'dropzone-filled' : 'dropzone-empty'" 
+              (change)="onFilesAdded($event, label)">
+          </ngx-dropzone>
+      </div>
+      
+      <!-- Liste des fichiers sélectionnés -->
+      <div *ngIf="filesMap[label] && filesMap[label].length">
+          <h3>Fichiers sélectionnés:</h3>
+          <form (ngSubmit)="onSubmit()">
+            <ul>
+                <li *ngFor="let file of filesMap[label]">
+                    {{ file.name }} 
+                    <button (click)="removeFile(file, label)">Supprimer  
+                      <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </li>
+            </ul>
+          </form>
+      </div>
+  </div>
+</div>
