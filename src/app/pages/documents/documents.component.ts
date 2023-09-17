@@ -3,11 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { GravityFormsService } from '../../Services/Gravity Forms/gravity-forms.service';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const formData: { [key: number]: string } = {
-  7: "Profil fiscal",
+const baseFormData: { [key: number]: string } = {
   1: "Courriel",
   52: "Statut",
-  90: "Consentement",
+};
+
+const studentFormData: { [key: number]: string } = {
+  ...baseFormData,
   8: "Information pour étudiant",
   62: "Avez-vous gagné un revenu d'emploi au cours de l'année?",
   63: "Nombre de paires de relevés T4/Relevé 1",
@@ -21,14 +23,23 @@ const formData: { [key: number]: string } = {
   70: "Si oui, combien de 0-17 ans?",
   73: "Si oui, combien de 18 ans et plus?",
   68: "Nombre de relevés d'impôt pour Vos personnes à charge",
-  58: "Veuillez indiquer les crédits d'impôts ou les déductions d'impôts que vous souhaitez réclamer cette année",
-  93: "Nom Complet",
-  94 : "Nom de famille",
-  93.3 : "Prenom",
-  // 94: "Nom utilisateur",
-  95: "Mot de passe",
-  96: "Téléphone",
-  97: "Addresse",
+  58: "Veuillez indiquer les crédits d'impots ou les déductions d'impots que vous souhaitez réclamer cette année"
+};
+
+const employeeFormData: { [key: number]: string } = {
+  ...baseFormData,
+  9: "Information pour salariés",
+  78: "Nombre de relevés d'impôt",
+  77: "Avez-vous des personnes a charge qui vivaient avec vous ?",
+  16: "Si oui, combien?",
+  42: "Si oui, combien de ces personnes a charge devons-nous faire des déclarations de revenus?",
+  43: "Avez-vous gagné des revenus de travailleur autonome?",
+  44: "Avez-vous gagné des revenus locatifs au cours de l'année?",
+  45: "Avez-vous vendu votre résidence principale au cours de l'année?",
+  46: "Avez-vous fait du télétravail durant l'année?",
+  47: "Avez-vous engagé des dépenses liées a votre emploi pour lesquelles vous avez reçu un formulaire de votre employeur?",
+  48: "Si oui",
+  80: "Veuillez indiquer les crédits d'impots ou les déductions d'impots que vous souhaitez réclamer cette année"
 };
 
 @Component({
@@ -40,7 +51,7 @@ export class DocumentsComponent {
 
   formLabels: string[] = [];
   labels: { [key: string]: string } = {};
-  filesMap: { [key: string]: File[] } = {}; // Nouvelle structure pour stocker les fichiers par champ
+  filesMap: { [key: string]: File[] } = {};
 
   faTrash = faTrash;
   constructor(private gravityFormsService: GravityFormsService, private http: HttpClient) {}
@@ -48,11 +59,22 @@ export class DocumentsComponent {
   ngOnInit() {
     this.gravityFormsService.getFormEntries(1).subscribe((data: any) => {
         const entries = data.entries;
+        const status = this.filterData(entries[1][52]);  // Supposons que c'est l'ID pour "Veuillez indiquer les crédits d'impôts..."
 
-        for (const key in formData) {
+        let formDataToUse;
+
+        if (status === 'Étudiant') {
+            formDataToUse = studentFormData;
+        } else if (status === 'Salarié') {
+            formDataToUse = employeeFormData;
+        } else {
+            formDataToUse = baseFormData;  // ou peut-être ne rien faire?
+        }
+
+        for (const key in formDataToUse) {
             if (Object.prototype.hasOwnProperty.call(entries[1], key)) {
-                this.labels[formData[key]] = entries[1][key];
-                this.filesMap[formData[key]] = [];  // Initialisez chaque clé ici
+                this.labels[formDataToUse[key]] = entries[1][key];
+                this.filesMap[formDataToUse[key]] = [];
             }
         }
     });

@@ -66,10 +66,11 @@ form {
   
   ngx-dropzone {
     border: 2px dashed $primary-color;
-    border-radius: 4px;
+    border-radius: 25px;
     padding: 1rem;
     background-color: $background-color;
     transition: border 0.3s;
+    width: 50px;
 
     &:hover {
       border-color: darken($primary-color, 10%);
