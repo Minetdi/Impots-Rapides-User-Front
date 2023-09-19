@@ -1,35 +1,3 @@
-<!-- <div class="select-person">
-  <label for="person">Sélectionnez une personne:</label>
-  <select id="person" [(ngModel)]="selectedPerson">
-      <option *ngFor="let person of persons" [value]="person">{{ person }}</option>
-  </select>
-</div>
-
-<div class="person-form">
-  <div *ngIf="selectedPerson">
-      <h2>Formulaire pour {{ selectedPerson }}</h2>
-      <label for="name">Prénom:</label>
-      <input type="text" id="name" [(ngModel)]="personForm.personalInfo.lastName">
-      <button (click)="onSubmit()">Soumettre</button>
-  </div>
-</div> -->
-
-
-
-
-
-
-<!-- <div class="person-form">
-  <div *ngIf="selectedPerson">
-    <h2>Formulaire pour {{ selectedPerson }}</h2>
-    <div *ngFor="let field of personFormFields">
-      <label for="{{field.id}}">{{field.label}}:</label>
-      <input [type]="field.type" [id]="field.id" [(ngModel)]="personForm.personalInfo[field.id]" *ngIf="personForm.personalInfo.hasOwnProperty(field.id)">
-      <input [type]="field.type" [id]="field.id" [(ngModel)]="personForm.questions[field.id]" *ngIf="personForm.questions.hasOwnProperty(field.id)">
-    </div>
-    <button (click)="onSubmit()">Soumettre</button>
-  </div>
-</div> -->
 
 
 <div *ngIf="entries && entries.length && labels">
@@ -39,10 +7,10 @@
       <div class="card-row" *ngFor="let label of getKeys(labels)">
         <div class="form-group">
           <label class="card-label">{{label}}</label>
-          <input class="card-value" [value]="filterData(labels[label])">
+          <input class="card-value" [value]="filterData(labels[label])" disabled>
         </div>
       </div>
-      <button (click)="onSubmit()">Soumettre</button>
+      <!-- <button (click)="onSubmit()">Soumettre</button> -->
     </form>
   </div>
 </div>
